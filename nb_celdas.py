@@ -25,7 +25,7 @@ def construir():
 
 **Autor:** Abel Meneses Yaranga
 
-**Fecha:** 16 de octubre de 2026
+**Fecha:** 18 de octubre de 2026
 
 **Repositorio del código:** https://github.com/amenesesy/actividad-cd-liver
 

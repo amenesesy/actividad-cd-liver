@@ -60,7 +60,7 @@ for r in parrafos[2].runs:
         r.text = "Abel Meneses Yaranga"
 for r in parrafos[3].runs:
     if "01/01/2022" in r.text:
-        r.text = "16/10/2026"
+        r.text = "18/10/2026"
 
 
 def parrafo(texto, estilo="Normal", despues=6, antes=0, alineacion=None,
@@ -483,7 +483,8 @@ texto(
 )
 
 # ------------------------------------------------------------- REFERENCIAS
-apartado3("Referencias")
+p_refs = apartado3("Referencias")
+p_refs.paragraph_format.page_break_before = True
 REFS = [
     "McKinney, W. (2010). Data structures for statistical computing in Python. En S. van der "
     "Walt y J. Millman (Eds.), *Proceedings of the 9th Python in Science Conference* "
