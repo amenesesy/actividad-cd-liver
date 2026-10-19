@@ -361,7 +361,7 @@ for ax, c in zip(axes.ravel(), VARS4):
     sns.histplot(df[c], bins=40, color=CIAN, edgecolor="white", ax=ax)
     ax.axvline(df[c].mean(), color=ACENTO, lw=1.4, label="media")
     ax.axvline(df[c].median(), color=GRIS, lw=1.4, ls="--", label="mediana")
-    ax.set_title("%s (asimetría %.1f, curtosis %.0f)" % (c, forma.loc[c, "asimetría"], forma.loc[c, "curtosis"]))
+    ax.set_title(("%s (asimetría %.1f, curtosis %.0f)" % (c, forma.loc[c, "asimetría"], forma.loc[c, "curtosis"])).replace(".", ","))
     ax.set_xlabel(""); ax.set_ylabel("frecuencia")
 axes[0, 0].legend(frameon=False, fontsize=9)
 fig.tight_layout()
@@ -373,7 +373,7 @@ guardar(fig, "fig1_histogramas")
 fig, axes = plt.subplots(2, 2, figsize=(8.2, 5.8))
 for ax, c in zip(axes.ravel(), VARS4):
     sns.histplot(np.log1p(df[c]), bins=30, color=GRIS_CLARO, edgecolor="white", ax=ax)
-    ax.set_title("log(1 + %s): asimetría %.1f" % (c, forma.loc[c, "asimetría_log"]))
+    ax.set_title(("log(1 + %s): asimetría %.1f" % (c, forma.loc[c, "asimetría_log"])).replace(".", ","))
     ax.set_xlabel(""); ax.set_ylabel("frecuencia")
 fig.tight_layout()
 guardar(fig, "fig1b_histogramas_log")
@@ -432,7 +432,7 @@ def mapa_calor(m, titulo, nombre):
     fig, ax = plt.subplots(figsize=(7.6, 6.0))
     sns.heatmap(m, mask=mask, cmap=cmap, vmin=-1, vmax=1, center=0, annot=True, fmt=".2f",
                 annot_kws={"size": 9}, square=True, linewidths=0.4, cbar_kws={"shrink": 0.75}, ax=ax)
-    ax.set_title(titulo); ax.tick_params(labelsize=10)
+    ax.tick_params(labelsize=10)  # sin título interno: el título APA va fuera de la imagen
     fig.tight_layout()
     guardar(fig, nombre)
 mapa_calor(corr_p, "Correlación de Pearson", "fig2_correlacion")
