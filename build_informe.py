@@ -515,18 +515,25 @@ figura(4, "Diagramas de caja de Sgot, TP, ALB y A/G Ratio por etiqueta clínica,
 
 apartado2("Conclusiones")
 texto(
-    "El conjunto es pequeño y está limpio en lo formal, pero presenta algunos faltantes y "
-    "errores de coherencia, un desbalance de sexo y de clase que condicionará el modelado, duplicados que hay "
-    "que controlar al particionar y, sobre todo, colas extremadamente largas en todos los "
-    "marcadores. Las correlaciones fuertes son las que la bioquímica predice y ninguna "
-    "variable aislada separa a enfermos de sanos. La imputación por media y la normalización "
-    "cumplen su función, pero aquí conviene precederlas de una transformación logarítmica o "
-    "emplear estimadores robustos, y tratar los atípicos como información clínica antes que "
-    "como ruido. El conjunto imputado y sus dos versiones normalizadas quedan guardados por "
-    "el cuaderno para la Actividad 2."
+    "El conjunto de datos es pequeño (583 pacientes y 11 variables) y formalmente limpio, "
+    "pero presenta cuatro problemas que condicionan su uso: 4 valores faltantes en A/G "
+    "Ratio y 17 registros incoherentes (3 con DB mayor que TB y 14 con un cociente A/G que "
+    "no se corresponde con ALB y TP), 13 filas duplicadas que deben controlarse al separar "
+    "entrenamiento y prueba, un desbalance marcado de sexo (76 % de hombres) y de clase "
+    "(71 % de enfermos), y distribuciones con colas muy largas en todos los marcadores "
+    "bioquímicos."
+)
+texto(
+    "Del análisis exploratorio se desprenden tres decisiones para el modelado. Primera, "
+    "las únicas correlaciones fuertes son las que la bioquímica explica (TB con DB, Sgpt "
+    "con Sgot, TP con ALB y A/G Ratio), de modo que conviene conservar una variable de "
+    "cada pareja; ninguna variable por sí sola separa a enfermos de sanos. Segunda, la "
+    "imputación por media y la normalización Min-Max o Z-Score funcionan, pero con colas "
+    "tan largas es preferible aplicar antes una transformación logarítmica o emplear "
+    "estimadores robustos. Tercera, los valores atípicos de Sgot y TP son información "
+    "clínica y no deben eliminarse; solo los de A/G Ratio apuntan a errores de captura."
 )
 
-# ------------------------------------------------------------- REFERENCIAS
 p_refs = apartado2("Referencias")
 p_refs.paragraph_format.page_break_before = True
 REFS = [
