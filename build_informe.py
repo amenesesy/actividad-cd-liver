@@ -565,7 +565,8 @@ for ref in REFS:
     p.paragraph_format.line_spacing = 1.0
     p.paragraph_format.space_after = Pt(5)
 
-apartado2("Anexo. Cuaderno Jupyter")
+p_anx = apartado2("Anexo. Cuaderno Jupyter")
+p_anx.paragraph_format.page_break_before = True
 p_anexo = texto(
     "El cuaderno CD_Actividad1_Liver.ipynb, con el código y las salidas de las ocho tareas, "
     "se entrega junto con este informe y puede abrirse y ejecutarse en Google Colab con el "
